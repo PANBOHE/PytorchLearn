@@ -4,9 +4,8 @@
 
 
 ### 
-.05torch2liner.py 
-用pytorch实现线性回归 
-1.Prepare dataset 
-2.Design model using Class 
-3.Construct loss and optimizer 
-4.Training cycle  
+.05torch2liner.py  
+用pytorch实现线性回归   
+1.Prepare dataset    
+2.Design model using Class   
+3.Construct loss and optimizer  
