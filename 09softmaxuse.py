@@ -11,7 +11,11 @@ import torch.optim as optim
 #01 数据
 batch_size = 64
 #归一化
-transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081))])
+#
+transform = transforms.Compose(
+    [transforms.ToTensor(), #convert the PIL image to tensor
+     transforms.Normalize((0.1307,), (0.3081))]#两个参数：均值，标准差
+    )
 #
 train_dataset = datasets.MNIST(root = "../dataset/mnist/", train = True, download = True, transform = transform)
 train_loader = DataLoader(train_dataset, shuffle = True, batch_size = batch_size)
@@ -33,7 +37,7 @@ class Net(torch.nn.Module):
 
 
     def forward(self, x):
-        x = x.view(-1, 784)  #-1 意味着就自动获取mini_batch
+        x = x.view(-1, 784)  #-1 意味着就自动获取mini_batch，把多维变成一维
         x = F.relu(self.l1(x))
         x = F.relu(self.l2(x))
         x = F.relu(self.l3(x))
